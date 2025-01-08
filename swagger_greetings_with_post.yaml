@@ -1,0 +1,50 @@
+
+openapi: 3.0.0
+info:
+  title: Greetings API
+  version: 1.0.0
+  description: An API to retrieve and add greetings in different languages
+paths:
+  /greetings:
+    get:
+      summary: Get all greetings
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    language:
+                      type: string
+                      example: English
+                    message:
+                      type: string
+                      example: Hello
+    post:
+      summary: Add a new greeting
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 11
+                language:
+                  type: string
+                  example: Korean
+                message:
+                  type: string
+                  example: 안녕하세요
+      responses:
+        '201':
+          description: Greeting added successfully
